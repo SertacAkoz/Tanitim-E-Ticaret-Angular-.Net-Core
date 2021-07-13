@@ -1,0 +1,14 @@
+C:\Users\akozs\source\repos\TayyibAla.API\TayyibAla.API\bin\Debug\netcoreapp2.1\TayyibAla.API.deps.json
+C:\Users\akozs\source\repos\TayyibAla.API\TayyibAla.API\bin\Debug\netcoreapp2.1\TayyibAla.API.runtimeconfig.json
+C:\Users\akozs\source\repos\TayyibAla.API\TayyibAla.API\bin\Debug\netcoreapp2.1\TayyibAla.API.runtimeconfig.dev.json
+C:\Users\akozs\source\repos\TayyibAla.API\TayyibAla.API\bin\Debug\netcoreapp2.1\TayyibAla.API.dll
+C:\Users\akozs\source\repos\TayyibAla.API\TayyibAla.API\bin\Debug\netcoreapp2.1\TayyibAla.API.pdb
+C:\Users\akozs\source\repos\TayyibAla.API\TayyibAla.API\obj\Debug\netcoreapp2.1\TayyibAla.API.csprojAssemblyReference.cache
+C:\Users\akozs\source\repos\TayyibAla.API\TayyibAla.API\obj\Debug\netcoreapp2.1\TayyibAla.API.csproj.CoreCompileInputs.cache
+C:\Users\akozs\source\repos\TayyibAla.API\TayyibAla.API\obj\Debug\netcoreapp2.1\TayyibAla.API.RazorAssemblyInfo.cache
+C:\Users\akozs\source\repos\TayyibAla.API\TayyibAla.API\obj\Debug\netcoreapp2.1\TayyibAla.API.RazorAssemblyInfo.cs
+C:\Users\akozs\source\repos\TayyibAla.API\TayyibAla.API\obj\Debug\netcoreapp2.1\TayyibAla.API.AssemblyInfoInputs.cache
+C:\Users\akozs\source\repos\TayyibAla.API\TayyibAla.API\obj\Debug\netcoreapp2.1\TayyibAla.API.AssemblyInfo.cs
+C:\Users\akozs\source\repos\TayyibAla.API\TayyibAla.API\obj\Debug\netcoreapp2.1\TayyibAla.API.RazorTargetAssemblyInfo.cache
+C:\Users\akozs\source\repos\TayyibAla.API\TayyibAla.API\obj\Debug\netcoreapp2.1\TayyibAla.API.dll
+C:\Users\akozs\source\repos\TayyibAla.API\TayyibAla.API\obj\Debug\netcoreapp2.1\TayyibAla.API.pdb
