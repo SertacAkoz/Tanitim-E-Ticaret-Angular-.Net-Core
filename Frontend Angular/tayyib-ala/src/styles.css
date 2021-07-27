@@ -1,0 +1,11 @@
+/* You can add global styles to this file, and also import other style files */
+
+body::-webkit-scrollbar {
+    display: none;
+}
+
+@media screen and (max-width: 380px) {
+    body {
+      font-size: small;
+    }
+  }

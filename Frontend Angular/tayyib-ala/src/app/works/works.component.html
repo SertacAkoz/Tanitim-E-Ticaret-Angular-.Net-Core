@@ -1,0 +1,111 @@
+<!-- <div class="container mt-5" >
+    <div id="animWorks">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse eius, a neque labore rem asperiores. Libero illo placeat nemo laboriosam, harum ad vero ullam nisi et eveniet nulla ab provident?
+    </div>
+</div>
+
+<style>
+  #animWorks{
+    height:100px;
+    width: 20%; 
+    position:absolute;
+  }
+
+  @media screen and (max-width: 600px) {
+  #animWorks {
+    width: 80%;
+  }
+}
+</style> -->
+<!-- <div class="row row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-lg-2 g-3">
+
+</div> -->
+<br><br><br>
+<div class="container mt-5" id="animWork">
+  <div class="row row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-lg-4 g-3">
+    <div *ngFor="let post of blogPosts" class="col" >
+      <div class="card">
+        <div class="container-flex">
+          <img src="{{post.image}}" alt="Denim Jeans" style="width:100%">
+        </div>
+        <h1 class="mt-3" style="color: burlywood;">{{post.title}}</h1>
+        <!-- <p class="price">$19.99</p> -->
+        <p class="mt-3" style="color: burlywood;">{{post.content}}</p>
+        <!-- <p><button>Add to Cart</button></p> -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- media -->
+<style>
+  @media screen and (max-width: 600px) {
+  .card{
+    max-width: 92%;
+  }
+}
+</style>
+
+<style>
+  .card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  /* max-width: 300px; */
+  margin: auto;
+  text-align: center;
+  font-family: arial;
+  position: relative;
+  height: 400px;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.price {
+  color: grey;
+  font-size: 22px;
+}
+
+.card button {
+  border: none;
+  outline: 0;
+  padding: 12px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.card button:hover {
+  opacity: 0.7;
+}
+</style>
+
+<!-- animate scale -->
+<style>
+  .container-flex{
+    overflow: hidden;
+  }
+  .card img{
+    transition: all 200ms;
+  }
+  .card img:hover{
+    transform: scale(1.5,1.5);
+  }
+</style>
+
+
+<!-- animate open -->
+<style>
+   #animWork {
+    opacity: 0;
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -ms-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+}
+</style>

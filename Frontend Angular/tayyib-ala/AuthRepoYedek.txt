@@ -1,0 +1,111 @@
+using Microsoft.EntityFrameworkCore;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using TayyibAla.API.Models;
+
+namespace TayyibAla.API.Data
+{
+    public class AuthRepo : IAuthRepo
+    {
+        private DataContext _context;
+
+        public AuthRepo(DataContext context)
+        {
+            _context = context;
+        }
+
+        public async Task<Customer> Login(string email, string password)
+        {
+            var customer = await _context.customers.FirstOrDefaultAsync(x => x.e_mail == email);
+
+            if(customer == null)
+            {
+                return null;
+            }
+
+            if (!VerifyPasswordHash(password, customer.password_hash, customer.password_salt))
+            {
+                return null;
+            }
+            return customer;
+        }
+
+        //private bool VerifyPasswordHash(string password, byte[] password_hash, byte[] password_salt)
+        //{
+        //    using (var hmac = new System.Security.Cryptography.HMACSHA512(password_salt))
+        //    {
+        //        var computedHash = hmac.ComputeHash(System.Text.Encoding.UTF8.GetBytes(password));
+
+        //        for (int i = 0; i < computedHash.Length; i++)
+        //        {
+        //            if (computedHash[i] != password_hash[i])
+        //            {
+        //                return false;
+        //            }
+        //        }
+        //        return true;
+        //    }
+        //}
+        private bool VerifyPasswordHash(string password, byte[] passwordHash, byte[] passwordSalt)
+        {
+            using (var hmac = new System.Security.Cryptography.HMACSHA512(passwordSalt))
+            {
+                var computedHash = hmac.ComputeHash(System.Text.Encoding.UTF8.GetBytes(password));
+
+                for (int i = 0; i < computedHash.Length; i++)
+                {
+                    if (computedHash[i] != passwordHash[i])
+                    {
+                        return false;
+                    }
+                }
+                return true;
+            }
+        }
+
+
+        public async Task<Customer> Register(Customer customer, string password)
+        {
+            byte[] password_hash, password_salt;
+
+            CreatePasswordHash(password, out password_hash, out password_salt);
+
+            customer.password_hash = password_hash;
+            customer.password_salt = password_salt;
+
+            await _context.customers.AddAsync(customer);
+            await _context.SaveChangesAsync();
+
+            return customer;
+        }
+
+        //private void CreatePasswordHash(string password, out byte[] password_hash, out byte[] password_salt)
+        //{
+        //    using (var hmac = new System.Security.Cryptography.HMACSHA512())
+        //    {
+        //        password_salt = hmac.Key;
+        //        password_hash = hmac.ComputeHash(System.Text.Encoding.UTF8.GetBytes(password));
+        //    }
+        //}
+
+        private void CreatePasswordHash(string password, out byte[] passwordHash, out byte[] passwordSalt)
+        {
+            using (var hmac = new System.Security.Cryptography.HMACSHA512())
+            {
+                passwordSalt = hmac.Key;
+                passwordHash = hmac.ComputeHash(System.Text.Encoding.UTF8.GetBytes(password));
+            }
+        }
+
+        public async Task<bool> UserExists(string email)
+        {
+            if(await _context.customers.AnyAsync(x=>x.e_mail == email))
+            {
+                return true;
+            }
+            return false;
+        }
+    }
+}

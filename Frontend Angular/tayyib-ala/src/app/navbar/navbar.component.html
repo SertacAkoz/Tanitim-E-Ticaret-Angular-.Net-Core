@@ -1,0 +1,254 @@
+<div id="mySidenav" class="sidenav">
+  <a *ngIf="!isAuthenticated()" onclick="document.getElementById('id01').style.display='block'" id="about">Giriş</a>
+  <a *ngIf="!isAuthenticated()" onclick="document.getElementById('id2').style.display='block'" id="blog">Kayıt ol</a>
+  <a *ngIf="isAuthenticated()" id="projects" (click)="logOut()">Çıkış</a>
+  <a *ngIf="isAuthenticated()" id="contact">Cüzdan</a>
+</div>
+<style>
+  #mySidenav a:hover {
+    cursor: pointer;
+  }
+  #mySidenav{
+    position: absolute;
+    z-index: 3;
+  }
+  .myActive{
+    /* background-color: gray; */
+    /* border-radius: 10px; */
+    border-style: solid;
+    border-color: white;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-radius: 20%;
+  }
+  .myActive:hover{
+    border-color: burlywood;
+  }
+  .nav a{
+    color: white;
+    transition: background-color 500ms, border-radius 500ms;
+  }
+  .nav a:hover{
+    color: burlywood;
+    /* border-radius: 50%; */
+  }
+</style>
+
+<div class="cover-container d-flex w-100 h-20 p-3 mx-auto flex-column text-center" style="height: 5%; background: transparent;">
+  
+</div>
+
+<div class="cover-container d-flex w-100 h-20 pt-3 pl-3 pr-3 mx-auto flex-column text-center fixed-top" id="main" style="height: 5%; z-index: 2;">
+  <header class="mb-auto" id="scroll">
+    <div>
+      <h3 class="float-md-start mb-0">Tayyib Ala</h3>
+      <nav class="nav  justify-content-center float-md-end">
+        <a class="nav-link" aria-current="page" routerLink="main" routerLinkActive="myActive">Ana Sayfa</a>
+        <a class="nav-link" routerLink="works" routerLinkActive="myActive">Çalışmalarım</a>
+        <a class="nav-link" routerLink="shop" routerLinkActive="myActive">Market</a>
+        <a class="nav-link" href="#" routerLink="orders" routerLinkActive="myActive">Sepet</a>
+      </nav>
+    </div>
+  </header>
+</div>
+
+<!-- hamburger -->
+<!-- <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Fixed navbar</a>
+    <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="navbar-collapse collapse" id="navbarCollapse">
+      <ul class="navbar-nav me-auto mb-2 mb-md-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Link</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+        </li>
+      </ul>
+      <form class="d-flex">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+</nav> -->
+
+<!-- navbar transition -->
+<style>
+  #scroll{
+    transition: background 500ms, background-color 500ms;
+  }
+  #main{
+    transition: background 500ms, background-color 500ms;
+  }
+</style>
+
+<script>
+  console.log("javascript in html");
+
+  window.addEventListener('scroll', function(){
+    if (window.scrollY > 50){
+      console.log("javascript in html");
+      var main = document.getElementById('main');
+      main.style.backgroundColor = black;
+    }
+  })
+
+
+
+
+  document.addEventListener("DOMContentLoaded", function(){
+    window.addEventListener('scroll', function(){
+    if (window.scrollY > 50){
+      console.log("javascript in html");
+      var main = document.getElementById('main');
+      main.style.backgroundColor = black;
+    }
+  })
+}); 
+</script>
+<!-- navbar style -->
+<!-- <style>
+  nav a{
+    color: gray;
+  }
+  nav a:hover{
+    transform: scale(1.1,1.1);
+    transition: transform 500ms;
+  }
+</style> -->
+
+<!-- The Modal -->
+<div id="id01" class="modal" style="position: absolute; z-index: 3;">
+  <span onclick="document.getElementById('id01').style.display='none'" class="close" style="color: white;"
+    title="Close Modal">&times;</span>
+
+  <!-- Modal Content -->
+  <style>
+    .formBG {
+      background-image: url(https://static.vecteezy.com/system/resources/previews/002/303/937/non_2x/abstract-gray-background-with-wavy-lines-vector.jpg);
+      /* background-image: url(https://wallpaperaccess.com/full/3490462.jpg); */
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+  </style>
+  <form [formGroup]="loginForm" *ngIf="loginForm" class="modal-content animate formBG">
+    <div class="imgcontainer">
+      <img src="http://www.kaduzem.org/images/default-user.png" width="150" height="300" alt="Avatar" class="avatar">
+    </div>
+    <h1 style="color: #deb887;">&nbsp;&nbsp;Giriş Yap</h1>
+    <div class="container form-group">
+      <div class="usernameDiv">
+        <label for="email"><b style="color: #deb887; font-size: x-large;">E-Mail</b></label>
+        <input formControlName="emailLogin" class="form-control" type="text" placeholder="Enter Email" id="email"
+          name="email" autocomplete="off" style="opacity: .7; ">
+      </div>
+
+      <div class="passwordDiv">
+        <label for="psw"><b style="color: #deb887; font-size: x-large;">Şifre</b></label>
+        <input formControlName="pswLogin" class="form-control" type="password" placeholder="Enter Password" id="psw"
+          name="psw" style="opacity: .7;">
+      </div>
+
+      <button (click)="formIsValidLogin()" type="submit" class="btn" style="background-color: gray; color: black;">Giriş</button>
+    </div>
+
+    <div class="container" style="background-color:#f1f1f1" style="position: relative;">
+      <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn btn"
+        style="position: absolute; left: 0;">İptal</button>
+      <span class="psw" style="color: #deb887;">Forgot <a href="#">password?</a></span>
+    </div>
+  </form>
+</div>
+<script>
+  // Get the modal
+  var modal = document.getElementById('id01');
+
+  // When the user clicks anywhere outside of the modal, close it
+  window.onclick = function (event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  }
+</script>
+
+
+<!-- The Modal (contains the Sign Up form) -->
+<div id="id2" class="modal" style="position: absolute; z-index: 3;">
+  <span onclick="document.getElementById('id2').style.display='none'" class="close" style="color: white;"
+    title="Close Modal">&times;</span>
+
+  <!-- Modal Content -->
+  <form [formGroup]="registerForm" *ngIf="loginForm" class="modal-content animate mt-5 formBG">
+    <h1 style="color: #deb887;">&nbsp;&nbsp;Kayıt Ol</h1>
+    <div class="container form-group">
+      <div class="usernameDiv">
+        <label for="emailRegister"><b style="color: #deb887; font-size: x-large;">E-Mail</b></label>
+        <input formControlName="emailRegister" class="form-control" type="text" placeholder="Enter Email"
+          id="emailRegister" name="emailRegister" autocomplete="off">
+      </div>
+
+      <div class="usernameDiv">
+        <label for="fNameRegister"><b style="color: #deb887; font-size: x-large;">İsim</b></label>
+        <input formControlName="fNameRegister" class="form-control" type="text" placeholder="Enter Your Firt Name"
+          id="fNameRegister" name="fNameRegister" autocomplete="off">
+      </div>
+
+
+      <div class="usernameDiv">
+        <label for="lNameRegister"><b style="color: #deb887; font-size: x-large;">Soy İsim</b></label>
+        <input formControlName="lNameRegister" class="form-control" type="text" placeholder="Enter Your Last Name"
+          id="lNameRegister" name="lNameRegister" autocomplete="off">
+      </div>
+
+
+
+
+      <div class="passwordDiv">
+        <label for="pswRegister"><b style="color: #deb887; font-size: x-large;">Şifre</b></label>
+        <input formControlName="pswRegister" class="form-control" type="password" placeholder="Enter Password"
+          id="pswRegister" name="pswRegister">
+      </div>
+
+
+      <div class="passwordDiv">
+        <label for="cpswRegister"><b style="color: #deb887; font-size: x-large;">Şifreyi Onayla </b></label>
+        <input formControlName="cpswRegister" class="form-control" type="password" placeholder="Enter Password"
+          id="cpswRegister" name="cpswRegister">
+      </div>
+
+      <button (click)="formIsValidRegister()" type="submit" class="btn" style="background-color: gray; color: black;">Kayıt Ol</button>
+    </div>
+
+    <div class="container" style="background-color:#f1f1f1" style="position: relative;">
+      <button type="button" onclick="document.getElementById('id2').style.display='none'" class="cancelbtn btn"
+        style="position: absolute; left: 0;">İptal</button>
+      <span style="color: #deb887;" class="psw">Forgot <a href="#">password?</a></span>
+    </div>
+  </form>
+  <style>
+    .usernameDiv label {
+      transition: margin-left 500ms;
+    }
+
+    .usernameDiv:focus-within label {
+      margin-left: 10%;
+    }
+
+    .passwordDiv label{
+      transition: margin-left 500ms;
+    }
+
+    .passwordDiv:focus-within label{
+      margin-left: 10%;
+    }
+  </style>
+</div>
